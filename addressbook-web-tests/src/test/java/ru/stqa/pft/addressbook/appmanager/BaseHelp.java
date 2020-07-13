@@ -5,10 +5,10 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
-public class HelperBase {
+public class BaseHelp {
     protected WebDriver wd;
 
-    public HelperBase(WebDriver wd) {
+    public BaseHelp(WebDriver wd) {
         this.wd = wd;
     }
 
@@ -40,4 +40,7 @@ public class HelperBase {
         }
     }
 
+    public void acceptAlert() {
+        wd.switchTo().alert().accept();
+    }
 }

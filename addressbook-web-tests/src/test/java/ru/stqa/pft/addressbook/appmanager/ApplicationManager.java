@@ -1,7 +1,6 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -10,17 +9,19 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationManager {
     protected WebDriver wd;
 
-    private SessionHelper sessionHelper;
-    private NavigationHelper navigationHelper;
-    private GroupHelper groupHelper;
+    private SessionHelp sessionHelper;
+    private NavigationHelp navigationHelper;
+    private GroupHelp groupHelper;
+    private ContactHelp contactHelp;
 
     public void init() {
         wd = new FirefoxDriver();
         wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/index.php");
-        groupHelper = new GroupHelper(wd);
-        navigationHelper = new NavigationHelper(wd);
-        sessionHelper = new SessionHelper(wd);
+        groupHelper = new GroupHelp(wd);
+        contactHelp = new ContactHelp(wd);
+        navigationHelper = new NavigationHelp(wd);
+        sessionHelper = new SessionHelp(wd);
         sessionHelper.login("admin","secret");
     }
 
@@ -32,11 +33,15 @@ public class ApplicationManager {
         wd.quit();
     }
 
-    public GroupHelper getGroupHelper() {
+    public GroupHelp getGroupHelper() {
         return groupHelper;
     }
 
-    public NavigationHelper getNavigationHelper() {
+    public ContactHelp getContactHelp() {
+        return contactHelp;
+    }
+
+    public NavigationHelp getNavigationHelper() {
         return navigationHelper;
     }
 }
