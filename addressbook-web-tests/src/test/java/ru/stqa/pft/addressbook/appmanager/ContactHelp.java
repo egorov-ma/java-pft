@@ -34,4 +34,11 @@ public class ContactHelp extends BaseHelp {
         type(By.name("email"),contactData.getEmail());
     }
 
+    public void initContactModification() {
+        click(By.xpath("//img[@alt='Edit']"));
+    }
+
+    public void submitContactModification() {
+        click(By.xpath("(//input[@name='update'])[2]"));
+    }
 }
