@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="447.74890350877195" y="567.0">ru.stqa.pft.addressbook.appmanager.ApplicationManager</node>
+    <node x="397.82127192982455" y="1059.0">ru.stqa.pft.addressbook.tests.GroupDeletionTests</node>
+    <node x="826.248903508772" y="301.0">ru.stqa.pft.addressbook.appmanager.GroupHelp</node>
+    <node x="596.8212719298245" y="1059.0">ru.stqa.pft.addressbook.tests.ContactDeletionTests</node>
+    <node x="496.5712719298245" y="22.0">ru.stqa.pft.addressbook.appmanager.BaseHelp</node>
+    <node x="157.24890350877195" y="312.0">ru.stqa.pft.addressbook.appmanager.ContactHelp</node>
+    <node x="950.9462719298245" y="1059.0">ru.stqa.pft.addressbook.tests.GroupCreationTests</node>
+    <node x="484.24890350877195" y="891.0">ru.stqa.pft.addressbook.tests.TestBase</node>
+    <node x="0.0" y="0.0">ru.stqa.pft.addressbook.model.ContactData</node>
+    <node x="50.82127192982455" y="1059.0">ru.stqa.pft.addressbook.tests.ContactCreationTests</node>
+    <node x="409.24890350877195" y="334.0">ru.stqa.pft.addressbook.appmanager.NavigationHelp</node>
+    <node x="948.8201754385965" y="22.0">ru.stqa.pft.addressbook.model.GroupData</node>
+    <node x="627.248903508772" y="356.0">ru.stqa.pft.addressbook.appmanager.SessionHelp</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ru.stqa.pft.addressbook.tests.GroupCreationTests" target="ru.stqa.pft.addressbook.model.GroupData">
+      <point x="60.0" y="-26.5" />
+      <point x="1100.9462719298244" y="281.0" />
+      <point x="1115.3201754385964" y="281.0" />
+      <point x="55.5" y="93.5" />
+    </edge>
+    <edge source="ru.stqa.pft.addressbook.tests.ContactDeletionTests" target="ru.stqa.pft.addressbook.tests.TestBase">
+      <point x="46.99999999999994" y="-26.5" />
+      <point x="737.8212719298244" y="1029.0" />
+      <point x="607.998903508772" y="1029.0" />
+      <point x="33.75" y="49.0" />
+    </edge>
+    <edge source="ru.stqa.pft.addressbook.appmanager.GroupHelp" target="ru.stqa.pft.addressbook.appmanager.BaseHelp">
+      <point x="1.1368683772161603E-13" y="-93.0" />
+      <point x="933.2489035087721" y="251.0" />
+      <point x="689.6962719298244" y="251.0" />
+      <point x="90.125" y="93.5" />
+    </edge>
+    <edge source="ru.stqa.pft.addressbook.appmanager.ApplicationManager" target="ru.stqa.pft.addressbook.appmanager.ContactHelp">
+      <point x="-115.0" y="-137.0" />
+      <point x="459.24890350877195" y="547.0" />
+      <point x="195.91557017543863" y="547.0" />
+      <point x="-77.33333333333331" y="82.0" />
+    </edge>
+    <edge source="ru.stqa.pft.addressbook.appmanager.NavigationHelp" target="ru.stqa.pft.addressbook.appmanager.BaseHelp">
+      <point x="-49.5" y="-60.0" />
+      <point x="458.74890350877195" y="271.0" />
+      <point x="560.9462719298244" y="271.0" />
+      <point x="-38.625" y="93.5" />
+    </edge>
+    <edge source="ru.stqa.pft.addressbook.appmanager.ApplicationManager" target="ru.stqa.pft.addressbook.appmanager.GroupHelp">
+      <point x="69.0" y="-137.0" />
+      <point x="643.248903508772" y="527.0" />
+      <point x="861.9155701754386" y="527.0" />
+      <point x="-71.33333333333337" y="93.0" />
+    </edge>
+    <edge source="ru.stqa.pft.addressbook.tests.ContactCreationTests" target="ru.stqa.pft.addressbook.model.ContactData">
+      <point x="-56.0" y="-26.5" />
+      <point x="78.82127192982455" y="281.0" />
+      <point x="67.0" y="281.0" />
+      <point x="-67.0" y="115.5" />
+    </edge>
+    <edge source="ru.stqa.pft.addressbook.appmanager.SessionHelp" target="ru.stqa.pft.addressbook.appmanager.BaseHelp">
+      <point x="44.75" y="-38.0" />
+      <point x="761.498903508772" y="271.0" />
+      <point x="638.1962719298244" y="271.0" />
+      <point x="38.625" y="93.5" />
+    </edge>
+    <edge source="ru.stqa.pft.addressbook.appmanager.ContactHelp" target="ru.stqa.pft.addressbook.model.ContactData">
+      <point x="-77.33333333333331" y="-82.0" />
+      <point x="195.91557017543863" y="281.0" />
+      <point x="201.0" y="281.0" />
+      <point x="67.0" y="115.5" />
+    </edge>
+    <edge source="ru.stqa.pft.addressbook.tests.ContactCreationTests" target="ru.stqa.pft.addressbook.tests.TestBase">
+      <point x="56.0" y="-26.5" />
+      <point x="190.82127192982455" y="1019.0" />
+      <point x="517.998903508772" y="1019.0" />
+      <point x="-56.25" y="49.0" />
+    </edge>
+    <edge source="ru.stqa.pft.addressbook.tests.TestBase" target="ru.stqa.pft.addressbook.appmanager.ApplicationManager">
+      <point x="-45.0" y="-49.0" />
+      <point x="529.248903508772" y="866.0" />
+      <point x="510.99890350877195" y="866.0" />
+      <point x="-63.25" y="137.0" />
+    </edge>
+    <edge source="ru.stqa.pft.addressbook.appmanager.ContactHelp" target="ru.stqa.pft.addressbook.appmanager.BaseHelp">
+      <point x="0.0" y="-82.0" />
+      <point x="273.24890350877195" y="251.0" />
+      <point x="509.4462719298245" y="251.0" />
+      <point x="-90.125" y="93.5" />
+    </edge>
+    <edge source="ru.stqa.pft.addressbook.tests.GroupDeletionTests" target="ru.stqa.pft.addressbook.tests.TestBase">
+      <point x="-44.75" y="-26.5" />
+      <point x="442.57127192982455" y="1029.0" />
+      <point x="540.498903508772" y="1029.0" />
+      <point x="-33.75" y="49.0" />
+    </edge>
+    <edge source="ru.stqa.pft.addressbook.appmanager.GroupHelp" target="ru.stqa.pft.addressbook.model.GroupData">
+      <point x="71.33333333333348" y="-93.0" />
+      <point x="-55.5" y="93.5" />
+    </edge>
+    <edge source="ru.stqa.pft.addressbook.appmanager.ApplicationManager" target="ru.stqa.pft.addressbook.appmanager.NavigationHelp">
+      <point x="-46.0" y="-137.0" />
+      <point x="528.248903508772" y="517.0" />
+      <point x="442.24890350877195" y="517.0" />
+      <point x="-66.0" y="60.0" />
+    </edge>
+    <edge source="ru.stqa.pft.addressbook.tests.GroupCreationTests" target="ru.stqa.pft.addressbook.tests.TestBase">
+      <point x="-60.0" y="-26.5" />
+      <point x="980.9462719298245" y="1019.0" />
+      <point x="630.498903508772" y="1019.0" />
+      <point x="56.25" y="49.0" />
+    </edge>
+    <edge source="ru.stqa.pft.addressbook.appmanager.ApplicationManager" target="ru.stqa.pft.addressbook.appmanager.SessionHelp">
+      <point x="23.0" y="-137.0" />
+      <point x="597.248903508772" y="507.0" />
+      <point x="671.998903508772" y="507.0" />
+      <point x="-44.75" y="38.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.7000000000000001" x="508.67063492063505" y="718.3333333333333" />
+  <SelectedNodes>
+    <node>ru.stqa.pft.addressbook.appmanager.BaseHelp</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Constructors</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
