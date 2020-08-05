@@ -7,6 +7,10 @@ public class ContactModificationTests extends TestBase {
 
     @Test
     public void testContactModification() {
+        if (! app.getContactHelp().isThereAGroup()){
+            app.getNavigationHelper().gotoContactPage();
+            app.getContactHelp().createContact(new ContactData("Максим","Егоров","+79271144774","email1@gmail.com", "test1"), true);
+        }
         app.getNavigationHelper().gotoHomePage();
         app.getContactHelp().selectedContacts();
         app.getContactHelp().initContactModification();
