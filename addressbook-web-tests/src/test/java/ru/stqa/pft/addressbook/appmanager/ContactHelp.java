@@ -61,4 +61,8 @@ public class ContactHelp extends BaseHelp {
     public boolean isThereAGroup() {
         return isElementPresent(By.xpath("(//td[@class='center']//input)[1]"));
     }
+
+    public int getContactCount() {
+        return wd.findElements(By.xpath("(//td[@class='center']//input)[1]")).size();
+    }
 }
