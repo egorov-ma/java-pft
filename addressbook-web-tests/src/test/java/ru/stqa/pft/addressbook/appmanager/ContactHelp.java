@@ -20,8 +20,10 @@ public class ContactHelp extends BaseHelp {
         wd.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
     }
 
-    public void selectedContacts() {
-        click(By.xpath("(//td[@class='center']//input)[1]"));
+    public void selectedContacts(int index) {
+        wd.findElements(By.name("selected[]")).get(index).click();
+
+      //  click(By.xpath("(//td[@class='center']//input)[1]"));
     }
 
     public void deleteSelectedContacts() {
@@ -63,6 +65,7 @@ public class ContactHelp extends BaseHelp {
     }
 
     public int getContactCount() {
-        return wd.findElements(By.xpath("(//td[@class='center']//input)[1]")).size();
+        return wd.findElements(By.name("selected[]")).size();
+        //return wd.findElements(By.xpath("(//td[@class='center']//input)[1]")).size();
     }
 }
