@@ -55,8 +55,16 @@ public class GroupHelp extends BaseHelp {
         returnToGroupPage();
     }
 
+    public void modifyGroup(int index, GroupData group) {
+        selectGroup(index);
+        initGroupModification();
+        fillGroupForm(group);
+        submitGroupModification();
+        returnToGroupPage();
+    }
+
     public boolean isThereAGroup() {
-        return isElementPresent(By.name("selected[]"));
+        return !isElementPresent(By.name("selected[]"));
     }
 
     public int getGroupCount() {
@@ -64,7 +72,7 @@ public class GroupHelp extends BaseHelp {
     }
 
     public List<GroupData> getGroupList() {
-        List<GroupData> groups = new ArrayList<GroupData>();
+        List<GroupData> groups = new ArrayList<>();
         List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
         for (WebElement element : elements) {
             String name = element.getText();

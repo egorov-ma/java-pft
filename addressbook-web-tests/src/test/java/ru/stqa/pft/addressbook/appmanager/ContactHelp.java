@@ -59,8 +59,12 @@ public class ContactHelp extends BaseHelp {
         returnToHomePage();
     }
 
-
-
+    public void modifyContact(int index, ContactData contact) {
+        initContactModification(index);
+        fillContactForm(contact, false);
+        submitContactModification();
+        returnToHomePage();
+    }
 
     public boolean isThereAGroup() {
         return !isElementPresent(By.xpath("(//td[@class='center']//input)[1]"));
