@@ -17,7 +17,10 @@ public class ContactModificationTests extends TestBase {
             app.contact().create(new ContactData()
                     .withFirstname("Максим")
                     .withLastname("Егоров")
-                    .withMobilePhone("+79271144774")
+                    .withAddress("Москва")
+                    .withHomePhone("222-222")
+                    .withMobilePhone("+7(927) 114-47-74")
+                    .withWorkPhone("33 33")
                     .withEmail("email1@gmail.com")
                     .withGroup("test1"), true);
         }
