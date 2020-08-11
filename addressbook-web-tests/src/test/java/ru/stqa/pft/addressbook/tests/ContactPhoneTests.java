@@ -5,9 +5,9 @@ import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.*;
+import static org.hamcrest.MatcherAssert.assertThat;
 
-public class ContactCreationTests extends TestBase {
+public class ContactPhoneTests extends TestBase {
 
     @Test
     public void testContactAdd() {
@@ -29,20 +29,9 @@ public class ContactCreationTests extends TestBase {
     }
 
     @Test
-    public void testBadContactAdd() {
+    public void testContactPhone() {
         app.goTo().homePage();
-        Contacts before = app.contact().all();
-        app.goTo().contactPage();
-        ContactData contact = new ContactData()
-                .withFirstname("Максим'")
-                .withLastname("Егоров")
-                .withMobilePhone("+79271144774")
-                .withEmail("email1@gmail.com")
-                .withGroup("test1");
-        app.contact().create(contact, true);
-        app.goTo().homePage();
-        assertThat(app.contact().count(), equalTo(before.size()));
-        Contacts after = app.contact().all();
-        assertThat(after, equalTo(before));
+        ContactData contact = app.contact().all().iterator().next();
+        ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
     }
 }

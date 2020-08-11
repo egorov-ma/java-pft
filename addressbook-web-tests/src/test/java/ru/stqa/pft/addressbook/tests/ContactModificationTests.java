@@ -17,7 +17,7 @@ public class ContactModificationTests extends TestBase {
             app.contact().create(new ContactData()
                     .withFirstname("Максим")
                     .withLastname("Егоров")
-                    .withMobile("+79271144774")
+                    .withMobilePhone("+79271144774")
                     .withEmail("email1@gmail.com")
                     .withGroup("test1"), true);
         }
@@ -32,7 +32,7 @@ public class ContactModificationTests extends TestBase {
                 .withId(modifiedContact.getId())
                 .withFirstname("Максим")
                 .withLastname("Егоров")
-                .withMobile("+79271144774")
+                .withMobilePhone("+79271144774")
                 .withEmail("email1@gmail.com")
                 .withGroup("test1");
         app.contact().modify(contact);
