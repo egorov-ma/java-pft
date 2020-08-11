@@ -53,17 +53,23 @@ public class ContactHelp extends BaseHelp {
         click(By.xpath("(//input[@name='update'])[2]"));
     }
 
-    public void createContact(ContactData contact, boolean creation) {
+    public void create(ContactData contact, boolean creation) {
         fillContactForm(contact, creation);
         submitContactCreation();
         returnToHomePage();
     }
 
-    public void modifyContact(int index, ContactData contact) {
+    public void modify(int index, ContactData contact) {
         initContactModification(index);
         fillContactForm(contact, false);
         submitContactModification();
         returnToHomePage();
+    }
+
+    public void delete(int index) {
+        selectedContacts(index);
+        deleteSelectedContacts();
+        acceptAlert();
     }
 
     public boolean isThereAGroup() {
@@ -74,7 +80,7 @@ public class ContactHelp extends BaseHelp {
         return wd.findElements(By.name("selected[]")).size();
     }
 
-    public List<ContactData> getContactList() {
+    public List<ContactData> list() {
         List<ContactData> contacts = new ArrayList<>();
         List<WebElement> line = wd.findElements(By.cssSelector("tr[name = 'entry']"));
         for (WebElement element : line) {
@@ -82,8 +88,7 @@ public class ContactHelp extends BaseHelp {
             String firstname = cells.get(2).getText();
             String lastname = cells.get(1).getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            ContactData contact = new ContactData(id, firstname, lastname, null, null, null);
-            contacts.add(contact);
+            contacts.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname));
         }
         return contacts;
     }
