@@ -6,9 +6,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.Contacts;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ContactHelp extends BaseHelp {
 
@@ -28,6 +31,10 @@ public class ContactHelp extends BaseHelp {
         wd.findElements(By.name("selected[]")).get(index).click();
     }
 
+    public void selectedContactsById(int id) {
+        wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
+    }
+
     public void deleteSelectedContacts() {
         click(By.xpath("//input[@value='Delete']"));
     }
@@ -45,8 +52,8 @@ public class ContactHelp extends BaseHelp {
         }
     }
 
-    public void initContactModification(int index) {
-        wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
+    public void initContactModificationById(int id) {
+        wd.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click();
     }
 
     public void submitContactModification() {
@@ -59,15 +66,15 @@ public class ContactHelp extends BaseHelp {
         returnToHomePage();
     }
 
-    public void modify(int index, ContactData contact) {
-        initContactModification(index);
+    public void modify(ContactData contact) {
+        initContactModificationById(contact.getId());
         fillContactForm(contact, false);
         submitContactModification();
         returnToHomePage();
     }
 
-    public void delete(int index) {
-        selectedContacts(index);
+    public void delete(ContactData contact) {
+        selectedContactsById(contact.getId());
         deleteSelectedContacts();
         acceptAlert();
     }
@@ -80,8 +87,8 @@ public class ContactHelp extends BaseHelp {
         return wd.findElements(By.name("selected[]")).size();
     }
 
-    public List<ContactData> list() {
-        List<ContactData> contacts = new ArrayList<>();
+    public Contacts all() {
+        Contacts contacts = new Contacts();
         List<WebElement> line = wd.findElements(By.cssSelector("tr[name = 'entry']"));
         for (WebElement element : line) {
             List<WebElement> cells  = element.findElements(By.tagName("td"));
