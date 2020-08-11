@@ -39,7 +39,7 @@ public class ContactHelp extends BaseHelp {
     public void fillContactForm(ContactData contactData, boolean creation) {
         type(By.name("firstname"), contactData.getFirstname());
         type(By.name("lastname"), contactData.getLastname());
-        type(By.name("mobile"), contactData.getMobile());
+        type(By.name("mobile"), contactData.getMobilePhone());
         type(By.name("email"), contactData.getEmail());
 
         if (creation) {
@@ -93,10 +93,15 @@ public class ContactHelp extends BaseHelp {
         List<WebElement> line = wd.findElements(By.cssSelector("tr[name = 'entry']"));
         for (WebElement element : line) {
             List<WebElement> cells  = element.findElements(By.tagName("td"));
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
             String firstname = cells.get(2).getText();
             String lastname = cells.get(1).getText();
-            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            contactCache.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname));
+            String allPhones = cells.get(5).getText();
+            contactCache.add(new ContactData()
+                    .withId(id)
+                    .withFirstname(firstname)
+                    .withLastname(lastname)
+                    .withAllPhones(allPhones));
         }
         return new Contacts(contactCache);
     }
