@@ -19,14 +19,6 @@ public class GroupDataGenerator {
         save(groups, file);
     }
 
-    private static void save(List<GroupData> groups, File file) throws IOException {
-        Writer writer = new FileWriter(file);
-        for (GroupData group : groups) {
-            writer.write(String.format("%s;%s;%s\n", group.getName(), group.getHeader(), group.getFooter()));
-        }
-        writer.close();
-    }
-
     private static List<GroupData> generateGroups(int count) {
         List<GroupData> groups = new ArrayList<>();
         for (int i = 0; i < count; i++) {
@@ -36,5 +28,13 @@ public class GroupDataGenerator {
                     .withFooter(String.format("footer %s", i)));
         }
         return groups;
+    }
+
+    private static void save(List<GroupData> groups, File file) throws IOException {
+        Writer writer = new FileWriter(file);
+        for (GroupData group : groups) {
+            writer.write(String.format("%s;%s;%s\n", group.getName(), group.getHeader(), group.getFooter()));
+        }
+        writer.close();
     }
 }
