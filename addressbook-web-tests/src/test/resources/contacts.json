@@ -7,7 +7,7 @@
     "workPhone": "33 33 0",
     "email": "email1@gmail0.com",
     "address": "Address0",
-    "group": "test0"
+    "group": "test 0"
   },
   {
     "firstname": "Firstname1",
@@ -17,7 +17,7 @@
     "workPhone": "33 33 1",
     "email": "email1@gmail1.com",
     "address": "Address1",
-    "group": "test1"
+    "group": "test 1"
   },
   {
     "firstname": "Firstname2",
@@ -27,6 +27,6 @@
     "workPhone": "33 33 2",
     "email": "email1@gmail2.com",
     "address": "Address2",
-    "group": "test2"
+    "group": "test 2"
   }
 ]
