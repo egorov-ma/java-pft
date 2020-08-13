@@ -67,7 +67,7 @@ public class ContactDataGenerator {
                     .withMobilePhone(String.format("+7(927) 114-47-7%s", i))
                     .withWorkPhone(String.format("33 33 %s", i))
                     .withEmail(String.format("email1@gmail%s.com", i))
-                    .withGroup(String.format("test%s", i)));
+                    .withGroup(String.format("test %s", i)));
         }
         return contacts;
     }
