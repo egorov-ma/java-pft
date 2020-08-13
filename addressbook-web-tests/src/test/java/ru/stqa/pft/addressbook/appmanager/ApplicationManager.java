@@ -7,9 +7,15 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
+    private final Properties properties;
     protected WebDriver wd;
 
     private SessionHelp sessionHelper;
@@ -20,9 +26,13 @@ public class ApplicationManager {
 
     public ApplicationManager(String browser) {
         this.browser = browser;
+        properties = new Properties();
     }
 
-    public void init() {
+    public void init() throws IOException {
+        String target = System.getProperty("target","local");
+        properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties",target))));
+
         switch (browser) {
             case BrowserType.FIREFOX:
                 wd = new FirefoxDriver();
@@ -35,12 +45,12 @@ public class ApplicationManager {
                 break;
         }
         wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        wd.get("http://localhost/addressbook/index.php");
+        wd.get(properties.getProperty("web.baseUrl"));
         groupHelper = new GroupHelp(wd);
         contactHelp = new ContactHelp(wd);
         navigationHelper = new NavigationHelp(wd);
         sessionHelper = new SessionHelp(wd);
-        sessionHelper.login("admin","secret");
+        sessionHelper.login(properties.getProperty("web.adminLogin"), properties.getProperty("web.adminPassword"));
     }
 
     public GroupHelp group() {
