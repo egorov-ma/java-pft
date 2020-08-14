@@ -1,0 +1,32 @@
+[
+  {
+    "firstname": "Firstname0",
+    "lastname": "Lastname0",
+    "homePhone": "111-110",
+    "mobilePhone": "+7(927) 114-47-70",
+    "workPhone": "33 33 0",
+    "email": "email1@gmail0.com",
+    "address": "Address0",
+    "group": "test 0"
+  },
+  {
+    "firstname": "Firstname1",
+    "lastname": "Lastname1",
+    "homePhone": "111-111",
+    "mobilePhone": "+7(927) 114-47-71",
+    "workPhone": "33 33 1",
+    "email": "email1@gmail1.com",
+    "address": "Address1",
+    "group": "test 1"
+  },
+  {
+    "firstname": "Firstname2",
+    "lastname": "Lastname2",
+    "homePhone": "111-112",
+    "mobilePhone": "+7(927) 114-47-72",
+    "workPhone": "33 33 2",
+    "email": "email1@gmail2.com",
+    "address": "Address2",
+    "group": "test 2"
+  }
+]
