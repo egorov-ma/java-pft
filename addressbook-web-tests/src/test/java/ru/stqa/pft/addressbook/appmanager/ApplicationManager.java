@@ -7,9 +7,15 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
+    private final Properties properties;
     protected WebDriver wd;
 
     private SessionHelp sessionHelper;
@@ -20,42 +26,50 @@ public class ApplicationManager {
 
     public ApplicationManager(String browser) {
         this.browser = browser;
+        properties = new Properties();
     }
 
-    public void init() {
-        if (browser.equals(BrowserType.FIREFOX)){
-            wd = new FirefoxDriver();
-        } else if (browser.equals(BrowserType.CHROME)) {
-            wd = new ChromeDriver();
-        } else  if (browser.equals(BrowserType.IE)) {
-            wd = new InternetExplorerDriver();
+    public void init() throws IOException {
+        String target = System.getProperty("target","local");
+        properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties",target))));
+
+        switch (browser) {
+            case BrowserType.FIREFOX:
+                wd = new FirefoxDriver();
+                break;
+            case BrowserType.CHROME:
+                wd = new ChromeDriver();
+                break;
+            case BrowserType.IE:
+                wd = new InternetExplorerDriver();
+                break;
         }
         wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        wd.get("http://localhost/addressbook/index.php");
+        wd.get(properties.getProperty("web.baseUrl"));
         groupHelper = new GroupHelp(wd);
         contactHelp = new ContactHelp(wd);
         navigationHelper = new NavigationHelp(wd);
         sessionHelper = new SessionHelp(wd);
-        sessionHelper.login("admin","secret");
+        sessionHelper.login(properties.getProperty("web.adminLogin"), properties.getProperty("web.adminPassword"));
     }
 
-    public void logout() {
-      wd.findElement(By.linkText("Logout")).click();
+    public GroupHelp group() {
+        return groupHelper;
+    }
+
+    public ContactHelp contact() {
+        return contactHelp;
+    }
+
+    public NavigationHelp goTo() {
+        return navigationHelper;
     }
 
     public void stop() {
         wd.quit();
     }
 
-    public GroupHelp getGroupHelper() {
-        return groupHelper;
-    }
-
-    public ContactHelp getContactHelp() {
-        return contactHelp;
-    }
-
-    public NavigationHelp getNavigationHelper() {
-        return navigationHelper;
+    public void logout() {
+        wd.findElement(By.linkText("Logout")).click();
     }
 }
