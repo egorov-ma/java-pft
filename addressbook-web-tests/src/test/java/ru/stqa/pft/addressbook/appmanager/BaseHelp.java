@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import java.io.File;
 
@@ -33,6 +34,12 @@ public class BaseHelp {
         if (file != null) {
             wd.findElement(locator).sendKeys(file.getAbsolutePath());
         }
+    }
+
+    protected void selectByText(By locator, String text) {
+        click(locator);
+        new Select(wd.findElement(locator)).selectByVisibleText(text);
+        click(locator);
     }
 
     public boolean isAlertPresent() {

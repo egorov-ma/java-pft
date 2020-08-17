@@ -1,0 +1,102 @@
+<list>
+  <contact>
+    <firstname>Firstname0</firstname>
+    <lastname>Lastname0</lastname>
+    <homePhone>111-110</homePhone>
+    <mobilePhone>+7(927) 114-47-70</mobilePhone>
+    <workPhone>33 33 0</workPhone>
+    <email>email1@gmail0.com</email>
+    <address>Address0</address>
+    <group>test0</group>
+  </contact>
+  <contact>
+    <firstname>Firstname1</firstname>
+    <lastname>Lastname1</lastname>
+    <homePhone>111-111</homePhone>
+    <mobilePhone>+7(927) 114-47-71</mobilePhone>
+    <workPhone>33 33 1</workPhone>
+    <email>email1@gmail1.com</email>
+    <address>Address1</address>
+    <group>test1</group>
+  </contact>
+  <contact>
+    <firstname>Firstname2</firstname>
+    <lastname>Lastname2</lastname>
+    <homePhone>111-112</homePhone>
+    <mobilePhone>+7(927) 114-47-72</mobilePhone>
+    <workPhone>33 33 2</workPhone>
+    <email>email1@gmail2.com</email>
+    <address>Address2</address>
+    <group>test2</group>
+  </contact>
+  <contact>
+    <firstname>Firstname3</firstname>
+    <lastname>Lastname3</lastname>
+    <homePhone>111-113</homePhone>
+    <mobilePhone>+7(927) 114-47-73</mobilePhone>
+    <workPhone>33 33 3</workPhone>
+    <email>email1@gmail3.com</email>
+    <address>Address3</address>
+    <group>test3</group>
+  </contact>
+  <contact>
+    <firstname>Firstname4</firstname>
+    <lastname>Lastname4</lastname>
+    <homePhone>111-114</homePhone>
+    <mobilePhone>+7(927) 114-47-74</mobilePhone>
+    <workPhone>33 33 4</workPhone>
+    <email>email1@gmail4.com</email>
+    <address>Address4</address>
+    <group>test4</group>
+  </contact>
+  <contact>
+    <firstname>Firstname5</firstname>
+    <lastname>Lastname5</lastname>
+    <homePhone>111-115</homePhone>
+    <mobilePhone>+7(927) 114-47-75</mobilePhone>
+    <workPhone>33 33 5</workPhone>
+    <email>email1@gmail5.com</email>
+    <address>Address5</address>
+    <group>test5</group>
+  </contact>
+  <contact>
+    <firstname>Firstname6</firstname>
+    <lastname>Lastname6</lastname>
+    <homePhone>111-116</homePhone>
+    <mobilePhone>+7(927) 114-47-76</mobilePhone>
+    <workPhone>33 33 6</workPhone>
+    <email>email1@gmail6.com</email>
+    <address>Address6</address>
+    <group>test6</group>
+  </contact>
+  <contact>
+    <firstname>Firstname7</firstname>
+    <lastname>Lastname7</lastname>
+    <homePhone>111-117</homePhone>
+    <mobilePhone>+7(927) 114-47-77</mobilePhone>
+    <workPhone>33 33 7</workPhone>
+    <email>email1@gmail7.com</email>
+    <address>Address7</address>
+    <group>test7</group>
+  </contact>
+  <contact>
+    <firstname>Firstname8</firstname>
+    <lastname>Lastname8</lastname>
+    <homePhone>111-118</homePhone>
+    <mobilePhone>+7(927) 114-47-78</mobilePhone>
+    <workPhone>33 33 8</workPhone>
+    <email>email1@gmail8.com</email>
+    <address>Address8</address>
+    <group>test8</group>
+  </contact>
+  <contact>
+    <firstname>Firstname9</firstname>
+    <lastname>Lastname9</lastname>
+    <homePhone>111-119</homePhone>
+    <mobilePhone>+7(927) 114-47-79</mobilePhone>
+    <workPhone>33 33 9</workPhone>
+    <email>email1@gmail9.com</email>
+    <address>Address9</address>
+    <group>test9</group>
+  </contact>
+</list>
