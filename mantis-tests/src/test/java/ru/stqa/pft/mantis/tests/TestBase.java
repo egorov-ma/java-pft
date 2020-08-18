@@ -7,7 +7,6 @@ import ru.stqa.pft.mantis.appmanager.ApplicationManager;
 
 import java.io.IOException;
 
-
 public class TestBase {
 
     protected static final ApplicationManager app
