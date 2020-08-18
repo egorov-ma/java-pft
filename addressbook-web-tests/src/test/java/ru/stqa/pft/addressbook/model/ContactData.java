@@ -201,25 +201,10 @@ public class ContactData {
         }
     }
 
-
-//    public ContactData(String firstname, String lastname){
-//        this.id = Integer.MAX_VALUE;
-//        this.firstname = firstname;
-//        this.lastname = lastname;
-//        this.homePhone = null;
-//        this.mobilePhone = null;
-//        this.mobilePhone = null;
-//        this.email = null;
-//        this.email2 = null;
-//        this.email3 = null;
-//        this.address = null;
-//    }
-
-//    public ContactData inGroup(GroupData group) {
-//        groups.add(group);
-//        return this;
-//    }
-
+    public ContactData inGroup(GroupData group) {
+        groups.add(group);
+        return this;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -255,10 +240,5 @@ public class ContactData {
                 ", address='" + address + '\'' +
                 ", groups=" + groups +
                 '}';
-    }
-
-    public Object inGroup(GroupData group) {
-        groups.add(group);
-        return this;
     }
 }

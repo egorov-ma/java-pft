@@ -3,10 +3,10 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.List;
 
@@ -34,6 +34,7 @@ public class ContactHelp extends BaseHelp {
 
     public void deleteSelectedContacts() {
         click(By.xpath("//input[@value='Delete']"));
+        wd.switchTo().alert().accept();
     }
 
     public void fillContactForm(ContactData contactData, boolean creation) {
@@ -48,7 +49,7 @@ public class ContactHelp extends BaseHelp {
 
         if (creation) {
             if (contactData.getGroups().size() > 0) {
-                Assert.assertTrue(contactData.getGroups().size() == 1);
+                Assert.assertEquals(contactData.getGroups().size(), 1);
                 selectByText(By.name("new_group"), contactData.getGroups().iterator().next().getName());
             }
         } else {
@@ -82,6 +83,18 @@ public class ContactHelp extends BaseHelp {
         acceptAlert();
     }
 
+    public void addToGroup(ContactData contact, GroupData group) {
+        selectedContactsById(contact.getId());
+        selectByText(By.name("to_group"), group.getName());
+        wd.findElement(By.name("add")).click();
+    }
+
+    public void deleteFromGroup(ContactData contact, GroupData group) {
+        selectByText(By.name("group"), group.getName());
+        selectedContactsById(contact.getId());
+        wd.findElement(By.name("remove")).click();
+    }
+
     public boolean isThereAGroup() {
         return !isElementPresent(By.xpath("(//td[@class='center']//input)[1]"));
     }
@@ -99,7 +112,7 @@ public class ContactHelp extends BaseHelp {
         contactCache = new Contacts();
         List<WebElement> line = wd.findElements(By.cssSelector("tr[name = 'entry']"));
         for (WebElement element : line) {
-            List<WebElement> cells  = element.findElements(By.tagName("td"));
+            List<WebElement> cells = element.findElements(By.tagName("td"));
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
             String lastname = cells.get(1).getText();
             String firstname = cells.get(2).getText();
