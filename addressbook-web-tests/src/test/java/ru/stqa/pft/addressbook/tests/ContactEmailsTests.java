@@ -14,7 +14,7 @@ public class ContactEmailsTests extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() {
-        if (app.contact().all().size() == 0) {
+        if (app.db().contacts().size() == 0) {
             app.goTo().contactPage();
             app.contact().create(new ContactData()
                     .withFirstname("Максим")
@@ -23,8 +23,7 @@ public class ContactEmailsTests extends TestBase {
                     .withHomePhone("222-222")
                     .withMobilePhone("+7(927) 114-47-74")
                     .withWorkPhone("33 33")
-                    .withEmail("email1@gmail.com")
-                    .withGroup("test1"), true);
+                    .withEmail("email1@gmail.com"), true);
         }
         app.goTo().homePage();
     }
