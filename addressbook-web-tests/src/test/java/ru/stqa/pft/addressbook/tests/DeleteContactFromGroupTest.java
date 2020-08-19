@@ -3,7 +3,9 @@ package ru.stqa.pft.addressbook.tests;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
+import ru.stqa.pft.addressbook.model.Groups;
 
 import java.util.Objects;
 
@@ -36,10 +38,33 @@ public class DeleteContactFromGroupTest extends TestBase {
     public void testDeletionContactFromGroup() {
         ContactData contact = app.db().contacts().iterator().next();
         GroupData group = app.db().groups().iterator().next();
+        Contacts contactSearch = app.db().contacts();
+        Groups groupSearch = app.db().groups();
+
+        boolean flag = true;
+        for (ContactData theContact : contactSearch) {
+            for (GroupData theGroup : groupSearch) {
+                if (theContact.getGroups().contains(theGroup) && flag) {
+                    contact = theContact;
+                    group = theGroup;
+                    flag = false;
+                }
+            }
+            if (flag) {
+                contact = theContact;
+                group = app.db().groups().iterator().next();
+                app.goTo().homePage();
+                app.contact().addToGroup(contact, group);
+            }
+        }
+        app.goTo().homePage();
         app.contact().deleteFromGroup(contact, group);
         app.goTo().homePage();
-        GroupData deleteContact = app.db().groups().stream().filter(a -> Objects.equals(group.getId(), a.getId())).findFirst().orElse(null);
-        assertThat(deleteContact.getContacts().contains(contact), equalTo(false));
+        ContactData finalContact = contact;
+        ContactData deleteContact = app.db().contacts().stream().filter((g) -> Objects.equals(finalContact.getId(), g.getId())).findFirst().orElse(null);
+        assertThat(deleteContact.getGroups().contains(group), equalTo(false));
+
+
     }
 
 }
