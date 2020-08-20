@@ -3,7 +3,9 @@ package ru.stqa.pft.addressbook.tests;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
+import ru.stqa.pft.addressbook.model.Groups;
 
 import java.util.Objects;
 
@@ -29,17 +31,48 @@ public class AddContactToGroupTest extends TestBase {
                     .withWorkPhone("33 33")
                     .withEmail("email1@gmail.com"), true);
         }
-
     }
 
     @Test
     public void testAddContactToGroup() {
         ContactData contact = app.db().contacts().iterator().next();
         GroupData group = app.db().groups().iterator().next();
+        Contacts contactSearch = app.db().contacts();
+        Groups groupSearch = app.db().groups();
+        boolean flag = true;
+        for (ContactData theContact : contactSearch) {
+            for (GroupData theGroup : groupSearch) {
+                if (!theContact.getGroups().contains(theGroup) && flag) {
+                    contact = theContact;
+                    group = theGroup;
+                    flag = false;
+                }
+            }
+            if (flag) {
+                app.goTo().groupPage();
+                app.group().create(new GroupData().withName("test Nn"));
+            }
+        }
+        if (flag) {
+            group = lastGroup();
+        }
         app.goTo().homePage();
         app.contact().addToGroup(contact, group);
-        ContactData addContact = app.db().contacts()
-                .stream().filter(a -> Objects.equals(contact.getId(), a.getId())).findFirst().orElse(null);
+        ContactData finalContact = contact;
+        ContactData addContact = app.db().contacts().stream().filter((g) -> Objects.equals(finalContact.getId(), g.getId())).findFirst().orElse(null);
         assertThat(addContact.getGroups().contains(group), equalTo(true));
+    }
+
+    public GroupData lastGroup() {
+        GroupData group = app.db().groups().iterator().next();
+        Groups groupSearch = app.db().groups();
+        int newGroupId = 0;
+        for (GroupData theGroup : groupSearch) {
+            if(theGroup.getId() > newGroupId) {
+                newGroupId = theGroup.getId();
+                group = theGroup;
+            }
+        }
+        return group;
     }
 }
